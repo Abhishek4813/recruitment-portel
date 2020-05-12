@@ -14,5 +14,5 @@ const managerschema=new mongoose.Schema({
     freelance_recuriters:[{type:String}],
     active_jobs:[{type:String}],
 });
-const managermodel=mongoose.model('manager',managerschema);
+const managermodel=mongoose.model('managers',managerschema);
 module.exports=managermodel;

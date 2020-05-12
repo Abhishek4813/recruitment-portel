@@ -10,11 +10,11 @@ html
           h1(class='company') We Hire For You
         p(class='msg') Login As Manager 
         div(class='form')
-          <form>
-            input(type="text" placeholder='Email' class='text' required)
+          form(name="manager" action="/manager/dashboard" method="post")
+            input(type="text" name="email" placeholder='Email' class='text' required)
             br
-            input(type="password" placeholder='••••••••••••••' class='password')
-            a(href="#" class='btn-login' id='do-login') Login
+            input(type="password" name="password" placeholder='••••••••••••••' class='password')
+            button(class='btn-login') Login
             a(href="#" class='forgot') Forgot?
       section(class='login' id='login')
         div(class='head')
@@ -22,9 +22,9 @@ html
           h1(class='company') We Hire For You
         p(class='msg') Login AS Recuriters 
         div(class='form')
-          <form>
-            input(type="text" placeholder='Email' class='text' required)
+          form(name="recuriters" action="/recuriters/dashboard" method="post")
+            input(type="text" name="email" placeholder='Email' class='text' required)
             br
-            input(type="password" placeholder='••••••••••••••' class='password')
-            a(href="#" class='btn-login' id='do-login') Login
+            input(type="password" name="password" placeholder='••••••••••••••' class='password')
+            button(class='btn-login') Login
             a(href="#" class='forgot') Forgot?

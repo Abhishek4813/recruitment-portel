@@ -1,3 +1,50 @@
 extends layout
 
 block content
+    div(class="row" style="margin:0px !important;flex-warp:no-warp !important")
+        div(class="col-sm-2 left-bar")
+            ul
+                li Navigation
+                ul
+                    li(class="listlog") Dashboard
+                    li(class="listlog") Recruiters
+            hr
+            ul
+                li Jobs
+                ul
+                    li(class="listlog") Received&nbsp;Candidates
+                    li(class="listlog") Live Job
+            hr
+            ul
+                li Support
+                ul
+                    li(class="listlog") Help Desk
+                    li(class="listlog") Tutorial
+                    li(class="listlog") Feedback
+        div(class="col-sm-9 middle-area")
+            div(class="main-box")
+                div(class="card" style="width:30%;")
+                    img(src="/images/job.png" width="40px")
+                    p(style="font-weight:bold; font-size:20px;") Full Stack Developer
+                    p(style="font-weight:bold") Google India, CSE/IT
+                    p(style="font-weight:bold") Mumbai
+                    hr(style="margin-top:0px;")
+                    div(style="padding:0px 20px")
+                        div(class="contact" style="float:left")  9876543210
+                        div(class="experience" style="float:right")  7-10 yrs
+                    div(style="clear:both;padding:0px 20px;" class="jobtype") FullTime
+                    hr(style="margin-top:0px;")
+                    div(style="padding:0px 20px")
+                        div(class="vacancy" style="float:left")  5
+                        div(class="salary" style="float:right")  15K-25K/month
+                    button
+                        a(href="#") Assign recuriters
+
+
+        div(class="col-sm-1 middle-area")
+            div(class="end-strip")
+                img(src="https://img.icons8.com/android/48/000000/search.png" width="40px")
+                img(src="https://img.icons8.com/ios-filled/50/000000/filter.png" width="40px")
+                img(src="https://img.icons8.com/ios-filled/50/000000/sort.png" width="40px")
+        
+        
