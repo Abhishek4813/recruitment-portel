@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    div(class="row" style="margin:0px !important;flex-warp:no-warp !important")
+    div(class="row" style="margin:0px !important;")
         div(class="col-sm-2 left-bar")
             ul
                 li Navigation
@@ -12,7 +12,7 @@ block content
             ul
                 li Jobs
                 ul
-                    li(class="listlog") Received&nbsp;Candidates
+                    li(class="listlog") Receive&nbsp;Candidates
                     li(class="listlog") Live Job
             hr
             ul
@@ -23,24 +23,44 @@ block content
                     li(class="listlog") Feedback
         div(class="col-sm-9 middle-area")
             div(class="main-box")
-                div(class="card" style="width:30%;")
-                    img(src="/images/job.png" width="40px")
-                    p(style="font-weight:bold; font-size:20px;") Full Stack Developer
-                    p(style="font-weight:bold") Google India, CSE/IT
-                    p(style="font-weight:bold") Mumbai
-                    hr(style="margin-top:0px;")
-                    div(style="padding:0px 20px")
-                        div(class="contact" style="float:left")  9876543210
-                        div(class="experience" style="float:right")  7-10 yrs
-                    div(style="clear:both;padding:0px 20px;" class="jobtype") FullTime
-                    hr(style="margin-top:0px;")
-                    div(style="padding:0px 20px")
-                        div(class="vacancy" style="float:left")  5
-                        div(class="salary" style="float:right")  15K-25K/month
-                    button
-                        a(href="#") Assign recuriters
-
-
+                -var x=0;
+                while x++<job.length
+                    div(class="card" style="width:30%;")
+                        img(src="/images/job.png" width="40px")
+                        p(style="font-weight:bold; font-size:20px;") #{job[x-1].jobtitle}
+                        p(style="font-weight:bold") #{job[x-1].company}, #{job[x-1].department}
+                        p(style="font-weight:bold") #{job[x-1].location}
+                        hr(style="margin-top:0px;")
+                        div(style="padding:0px 20px")
+                            div(class="contact" style="float:left")  #{job[x-1].contact}
+                            div(class="experience" style="float:right")  #{job[x-1].experience}
+                        div(style="clear:both;padding:0px 20px;" class="jobtype") #{job[x-1].job_type}
+                        hr(style="margin-top:0px;")
+                        div(style="padding:0px 20px")
+                            div(class="vacancy" style="float:left")  #{job[x-1].vacancies}
+                            div(class="salary" style="float:right")  #{job[x-1].package}
+                        button(data-toggle="modal" data-target="#myModal" onclick="modal('"+job[x-1]._id+"','"+job[x-1].jobtitle+"')") 
+                            a Assign recuriters
+                        div(class="modal" id="myModal")
+                            div(class="modal-dialog")
+                                div(class="modal-content")
+                                    div(class="modal-header")
+                                        h4(class="modal-title" id="modal-title") #{job[x-1].jobtitle}
+                                        button(type="button" class="close" data-dismiss="modal") &times;
+                                    div(class="modal-body")
+                                        select(name="recruter" id="recruter-name")
+                                            -var y=0;
+                                            while y++<recruter.length
+                                                option(value=recruter[y-1]._id) #{recruter[y-1].name}
+                                    div(class="modal-footer")
+                                        button(type="button")
+                                            a(href="/assign/" id="modalsubmit") Assign 
+                        script.
+                                function modal(id,title){
+                                document.getElementById("modal-title").innerHTML=title;
+                                var recruter=document.getElementById("recruter-name").value;
+                                document.getElementById("modalsubmit").href+=id+"/"+recruter;
+                            }
         div(class="col-sm-1 middle-area")
             div(class="end-strip")
                 img(src="https://img.icons8.com/android/48/000000/search.png" width="40px")

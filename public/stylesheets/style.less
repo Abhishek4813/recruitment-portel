@@ -46,7 +46,7 @@ nav span{
   margin-top:20px;
   border-radius:5px;
   line-height:40px;
-  height:86vh;
+  height:94vh;
   font-size:  1vw;
   padding:5px 2px !important;
 }
@@ -81,7 +81,7 @@ hr{
   flex-direction: column;
   width:80px;
   align-items: center;
-  height:86vh
+  height:94vh
 }
 .end-strip img{
   padding:20px 0px;
@@ -89,10 +89,12 @@ hr{
 .main-box{
   display:flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .card{
+  margin-bottom:10px;
   padding:10px;
-  border-radius: 5px !important;
+  border-radius: 20px !important;
   border:2px solid black !important;
 }
 .card p{
@@ -137,6 +139,16 @@ button a{
   font-size:14px;
   text-decoration: none !important;
 }
+@media only screen and(max-width:1184px){
+ .card{
+   width:50% !important
+ }
+}
+@media only screen and(max-width:733px){
+  .card{
+    width:100% !important
+  }
+ }
 @media only screen and(max-width:630px){
   .material-icons{
     display:none !important;
