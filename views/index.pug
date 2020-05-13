@@ -40,7 +40,10 @@ block content
                             div(class="vacancy" style="float:left")  #{job[x-1].vacancies}
                             div(class="salary" style="float:right")  #{job[x-1].package}
                         button(data-toggle="modal" data-target="#myModal" onclick="modal('"+job[x-1]._id+"','"+job[x-1].jobtitle+"')") 
-                            a Assign recuriters
+                            if recruter[0].qualification 
+                                a Add Candidate
+                            else
+                                a Assign recuriters
                         div(class="modal" id="myModal")
                             div(class="modal-dialog")
                                 div(class="modal-content")
@@ -54,12 +57,15 @@ block content
                                                 option(value=recruter[y-1]._id) #{recruter[y-1].name}
                                     div(class="modal-footer")
                                         button(type="button")
-                                            a(href="/assign/" id="modalsubmit") Assign 
+                                            if recruter[0].qualification
+                                                a(href="/candidate/" id="modalsubmit") Add Candidate 
+                                            else
+                                                a(href="/assign/" id="modalsubmit") Assign 
                         script.
                                 function modal(id,title){
-                                document.getElementById("modal-title").innerHTML=title;
-                                var recruter=document.getElementById("recruter-name").value;
-                                document.getElementById("modalsubmit").href+=id+"/"+recruter;
+                                    document.getElementById("modal-title").innerHTML=title;
+                                    var recruter=document.getElementById("recruter-name").value;
+                                    document.getElementById("modalsubmit").href+=id+"/"+recruter;
                             }
         div(class="col-sm-1 middle-area")
             div(class="end-strip")
