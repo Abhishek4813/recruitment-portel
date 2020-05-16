@@ -1,0 +1,63 @@
+extends layout
+
+block content
+    div(class="row" style="margin:0px !important;")
+        div(class="col-sm-2 left-bar")
+            ul
+                li Navigation
+                ul
+                    li(class="listlog") Dashboard
+                    li(class="listlog") Recruiters
+            hr
+            ul
+                li Jobs
+                ul
+                    li(class="listlog") 
+                        a(href="/accept/candidate") Receive&nbsp;Candidates
+                    li(class="listlog") Live Job
+            hr
+            ul
+                li Support
+                ul
+                    li(class="listlog") Help Desk
+                    li(class="listlog") Tutorial
+                    li(class="listlog") Feedback
+        div(class="col-sm-9 middle-area")
+            if candidate[0]
+                div(class="main-box")
+                    -var x=0;
+                    while x++<candidate.length
+                        div(class="card" style="width:30%;")
+                            img(src="/images/job.png" width="40px")
+                            p(style="font-weight:bold; font-size:20px;") #{candidate[x-1].name}
+                            hr(style="margin-top:0px;")
+                            div(style="padding-right:8px")
+                                div( style="float:left") 
+                                    b Experience 
+                                    span(style="padding-left:10px;") #{candidate[x-1].experience}
+                                div( style="float:right") 
+                                    b Qualification
+                                    span(style="padding-left:10px;") #{candidate[x-1].qualification}
+                            div 
+                                b skills  
+                            span(style="padding-left:50px;") #{candidate[x-1].skills}
+                            div 
+                                b Additional Skills  
+                            span(style="padding-left:50px;") #{candidate[x-1].additional_skills}
+                            hr(style="margin-top:0px;")
+                            div
+                                button(style="float:left;margin-right:10px;")
+                                    a(onclick="offerjob('Accept','"+candidate[x-1]._id+"')") Accept
+                                button(style="float:left")
+                                    a(onclick="offerjob('Reject','"+candidate[x-1]._id+"')") Reject
+            else
+                div(class="nodata")
+                    p  THE RECRUITERS HAVE NOT ADDED ANY CANDIDATE TILL NOW
+                            
+        div(class="col-sm-1 middle-area")
+            div(class="end-strip")
+                img(src="https://img.icons8.com/android/48/000000/search.png" width="40px")
+                img(src="https://img.icons8.com/ios-filled/50/000000/filter.png" width="40px")
+                img(src="https://img.icons8.com/ios-filled/50/000000/sort.png" width="40px")
+        
+        

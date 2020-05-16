@@ -13,12 +13,8 @@ const managerschema=new mongoose.Schema({
     jobs:[{type:String}],
     freelance_recuriters:[{type:String}],
     active_jobs:[{
-      job_id:{
-        type:String,
-        unique:true,
-        index:true,
-      },
-      assigned_recruiters:[{type:String,unique:true,index:true}],
+      job_id:String,
+      assigned_recruiters:[{type:String}],
     }],
 });
 const managermodel=mongoose.model('managers',managerschema);

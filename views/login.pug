@@ -28,3 +28,5 @@ html
             input(type="password" name="password" placeholder='••••••••••••••' class='password')
             button(class='btn-login') Login
             a(href="#" class='forgot') Forgot?
+    if errMsg
+      div(class="errmsg") #{errMsg}
