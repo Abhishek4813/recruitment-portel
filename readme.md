@@ -20,4 +20,4 @@ password
 	no passward directly press login
 
 ### Database
-Database only contain some job, candidate, and a manager so initiall you will get Empty pages with message try assiginig job/accepting job/rejecting job to view changes.
+Database only contain some job, candidate, and a manager so initiall you will get Empty pages with message. Try assiginig job/accepting job/rejecting job to view changes.
